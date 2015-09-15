@@ -1,0 +1,38 @@
+li.li-default
+{
+	background-color:#b99;
+	margin:3px;
+	padding:4px;
+}
+li.li-added
+{
+	background-color:#99b;
+	margin:3px;
+	padding:4px;
+}
+span.remove-li{
+	float:right;
+	cursor:pointer;
+	margin-right:5px;
+	color:#555;
+}
+.my-ul
+{
+	width:30%;
+}
+.submit-btn{
+	-webkit-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.98) 0 1px 0 0;
+	background-color:#ED8223;
+	border-radius:0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border:1px solid #999;
+	color:#222;
+	font-family:'Lucida Grande',Tahoma,Verdana,Arial,Sans-serif;
+	font-size:11px;
+	font-weight:700;
+	padding:3px 9px;
+	cursor: pointer;
+}

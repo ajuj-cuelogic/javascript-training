@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>
+			My App
+		</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Welocme to my first App. I am <%= title %></h1>
+			<h3>My Programming skills are:</h3>
+			<ul class="my-ul">
+				<% for (var i = 0; i < items.length; i++){ %>
+					<% if(items[i].id <= 4) { %>
+						<li  class="li-default" ><%= items[i].name %></li>
+					<% } else { %>
+						<li  class="li-added" ><%= items[i].name %></li>
+					<% } %>
+				<% } %> 
+			</ul>
+			<form action = "/add" method = "post">
+				<label>Please add another skills: </label><input type="text" required maxlength="30" autofocus=true name="language" />
+				
+				<input type="submit" value= "Submit" class="submit-btn" />
+			</form>
+		</div>
+	</body>
+</html>
