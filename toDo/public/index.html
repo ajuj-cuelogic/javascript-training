@@ -1,0 +1,83 @@
+<!-- @Author Aju John -->
+<!doctype html>
+
+<!-- ANGULAR App -->
+<html ng-app="scotchTodo">
+    <head>
+     
+        <title>Todo App: Using Node/Angular </title>
+
+        <!-- CCS Styles -->
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><!-- load bootstrap -->
+        <style>
+            
+        </style>
+
+        <!-- Javascript -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+        <script src="core.js"></script>
+
+    </head>
+    <!-- SET THE CONTROLLER AND GET ALL TODOS -->
+    <body ng-controller="mainController">
+        <!-- MAIN DIV -->
+        <div class="container">
+
+            <!-- HEADER AND TODO COUNT -->
+            <div class="jumbotron text-center">
+                <h1>This is My ToDo List <span class="label label-info">{{ todos.length }}</span></h1>
+            </div>
+
+            <!-- TODO LIST -->
+            <div id="todo-list" class="row text-left">
+                <div class="col-sm-4 col-sm-offset-2 text-left">
+                    <h3><u>To DO tasks</u></h3>
+                    <!-- LOOP OVER THE TODOS IN $scope.todos -->
+                    <div class="checkbox" ng-repeat="todo in todos">
+                        
+                        <label>
+                            <input  type="checkbox" id="id{{todo._id}}" ng-click="updateTodo(todo._id,1)"> {{ todo.text }}
+                        </label><a  title="Remove Permanently" style="margin-left:10px;" href="" ng-click="deleteTodo(todo._id)">x</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FORM TO CREATE TODOS -->
+            <div id="todo-form" class="row">
+                <div class="col-sm-8 col-sm-offset-2 text-center">
+                    <form>
+                        <div class="form-group">
+
+                            <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                            <input type="text" class="form-control input-lg text-center" placeholder="Add new Task for ex: Recahrge DTH" ng-model="formData.text">
+                        </div>
+
+                        <!-- createToDo() WILL CREATE NEW TODOS -->
+                        <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+                    </form>
+                </div>
+                <!-- LIST OF COMPLETED TODOS -->
+                <div class="col-sm-8 col-sm-offset-2 ">
+                <h3><u>Completed Tasks</u></h3>
+                    <ul>
+                        <!-- LOOP OVER THE TODOS IN $scope.todosCompleted -->
+                        <li ng-repeat="todo in todosCompleted">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> &nbsp; {{ todo.text }} 
+                            <!-- REMOVE TODO ICON -->
+                            <a  title="Remove Permanently" style="margin-left:10px;" href="" ng-click="deleteTodo(todo._id)">x</a>
+                            <!-- MARK INCOMPLETE TODO ICON -->
+                            <a  href="" ng-click="updateTodo(todo._id,0)" title="Mark as Incomplete">
+                                <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>

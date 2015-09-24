@@ -1,0 +1,18 @@
+{
+  "name": "toDo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aju",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "express": "^4.13.3",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.1.8",
+    "morgan": "^1.6.1"
+  }
+}
