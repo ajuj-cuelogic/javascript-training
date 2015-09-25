@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Objects in Javascript</title>
+		<script type="text/javascript">
+			function stopWatch() {
+			    var startTime = Date.now();
+			 
+			    function getDelay() {
+			        var elapsedTime = Date.now() - startTime;
+			        console.log(elapsedTime);
+			        document.getElementsByTagName("div")[0].innerHTML = "Timer stopped after " + elapsedTime + "ms";
+			    }
+			 
+			    return getDelay;
+			}
+			var timer = stopWatch();
+ 
+			setTimeout('timer()', 2000); //timer() will call the getDelay function after 2 seconds
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html> 
