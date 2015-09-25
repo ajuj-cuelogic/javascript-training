@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Inheritance in Javascript</title>
+		<script type="text/javascript">
+			//@Author Aju John
+
+			function Vehicle() {}
+
+			Vehicle.prototype.drive = function () { //Addnig new function to Vehicle Class
+				console.log("vrooom...");
+			}
+
+
+			function Car() {}
+
+			Car.prototype = new Vehicle(); //Inheritance
+
+			Car.prototype.honk = function() { // Adding Sub class's own method
+	  			console.log("honk honk");
+			}
+
+
+			var myCar = new Car();
+
+			myCar.honk();  // logs "honk honk"
+			myCar.drive();  // function from parent class : logs "vrooom..."
+		</script>
+	</head>
+	<body>
+	</body>
+</html> 
