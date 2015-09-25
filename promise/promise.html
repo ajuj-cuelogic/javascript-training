@@ -1,36 +1,43 @@
 <html>
 	<head>
 		<title>Promise in Javascript</title>
-		
-	</head>
-	<body>
-		<h1>output</h1>
-		<div id="log-container">
-		</div>
+		<script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 		<script type="text/javascript">
 			//@Author Aju John
 			//Check whether browser support promise or not!!
-			function log(varargs) {
-			    var args = Array.prototype.slice.call(arguments, 0);
-			    var message = args.join(" ");
-			    var container = document.getElementById('log-container');
-			    var messageDiv = document.createElement('div');
-			    messageDiv.innerHTML = message;
-			    container.appendChild(messageDiv);
-			}   
+			if (window.Promise) {
 
-			function doSomething() {
-			  return {
-			    then: function(callback) {
-			      var value = 42;
-			      callback(value);
-			    }
-			  };
+			  	var promise = new Promise(function(resolve, reject) {
+			    	var request = new XMLHttpRequest();
+
+			    	request.open('GET', 'data.json');
+				    request.onload = function() {
+						if (request.status == 200) {
+							resolve(request.response); // we got data here, so resolve the Promise
+						} else {
+							reject(Error(request.statusText)); // status is not 200 OK, so reject
+						}
+				    };
+
+				    request.onerror = function() {
+						reject(Error('Error fetching data.')); // error occurred, reject the  Promise
+				    };
+			    	request.send(); //send the request
+				});
+
+				console.log('Asynchronous request made.');
+
+				promise.then(function(data) {
+					document.getElementsByTagName('body')[0].textContent = JSON.stringify(JSON.parse(data));
+				}, function(error) {
+					console.log('Promise rejected.');
+					console.log(error.message);
+				});
+			} else {
+				console.log('Promise not available');
 			}
-
-			doSomething().then(function(result) {
-			    log("got a result", result);
-			});
 		</script>
+	</head>
+	<body>
 	</body>
 </html>
