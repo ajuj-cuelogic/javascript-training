@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title>Objects in Javascript</title>
+		<script type="text/javascript">
+			/**@Author Aju John
+			 */
+			 //-------------------------------------------------------------------------------------------------------------------
+			 /**
+			 * usual way to declare a function
+			 * @params {string} numberA, numberB
+			 */
+			function add(numberA, numberB) 
+			{                     
+			  return numberA + numberB;
+			}                     
+			console.log("Usual way, Sum = " + add(1, 2)); //logs "Usual way, Sum = 3"
+
+			//-------------------------------------------------------------------------------------------------------------------
+			/**
+			 * function assigning in a variable
+			 * @params {string} numberA, numberB
+			 */
+			var add = function(numberA, numberB) 
+			{                     
+			  return numberA + numberB;
+			}                     
+			console.log("function assigning in a variable, Sum = " + add(1, 2)); //logs "function assigning in a variable, Sum = 3"
+
+			//-------------------------------------------------------------------------------------------------------------------
+			/**
+			 * object oriented way
+			 * @params {string} numberA, numberB
+			 */
+			var myObject = new Object();
+			myObject.add = function(numberA, numberB){
+								return numberA + numberB;
+							};  
+			// myObject now has a property/a method named "add"
+			console.log("object oriented way, Sum = " + myObject.add(1, 2));  //logs "object oriented way, Sum = 3"
+
+
+			//-------------------------------------------------------------------------------------------------------------------
+			/**
+			 * Using Function type
+			 * @params {string} numberA, numberB
+			 */
+			var add=new Function("numberA", "numberB", "return numberA + numberB;"); //Here Functio
+			console.log("Using Function type, Sum = " + myObject.add(1, 5));  //logs "Using Function type, Sum = 3"
+
+
+			//-------------------------------------------------------------------------------------------------------------------
+			/**
+			 * Using Module
+			 * @params {string} numberA, numberB
+			 */
+			var Module = (function () {
+							  return {
+							  		add	: 	function(numberA, numberB){
+							  			return numberA+ numberB;
+							  		}
+							  	}
+						})();
+			console.log("Using Module, Sum = " + Module.add(1, 5));  //logs "Using Module, Sum = 3"
+		</script>
+	</head>
+	<body>
+	</body>
+</html> 
