@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Objects in Javascript</title>
+		<script type="text/javascript">
+			/**@Author Aju John
+			 * @param {string} prefix
+			 * @constructor
+			 */
+			function Product(prefix) {
+				/**
+				* @private variable
+				* @type {number}
+				*/
+				this.prefix_ = prefix;
+				/**
+				* @private variable
+				* @type {string}
+				*/
+			  	this.type_ = "";
+			}
+
+
+			/**
+			* @param {string} newType
+			*/
+			Product.prototype = {
+				/**
+				 * @return {string}
+				 */
+				get type () {
+				  return this.prefix_ + ": " + this.type_;
+				},
+				/**
+				 * @param {string}
+				 */
+				set type (newType) {
+				  this.type_ = newType;
+				}
+			};
+
+			var product = new Product("Vehicle");
+
+			product.type = "car";
+			console.log(product.type); //logs "Vehicle: car"
+
+			console.log(product.type = "train");  //logs "train"
+			console.log(product.type); //logs "Vehicle: train"
+		</script>
+	</head>
+	<body>
+	</body>
+</html>	
